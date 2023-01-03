@@ -1,16 +1,25 @@
 package com.fdmgroup.ObjectPool;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ConnectionPool {
-	private List<Connection> connections;
+public final class ConnectionPool {
+	private List<Connection> connections = new ArrayList<Connection>();
 	private int maxConnections;
+	
+	private static ConnectionPool INSTANCE = new ConnectionPool();
 
-	public ConnectionPool(List<Connection> connections, int maxConnections) {
-		super();
-		this.connections = connections;
-		this.maxConnections = maxConnections;
+//	public ConnectionPool(List<Connection> connections, int maxConnections) {
+//		super();
+//		this.connections = connections;
+//		this.maxConnections = maxConnections;
+//	}
+	
+	private ConnectionPool() {}
+	
+	public static ConnectionPool getInstance() {
+		return INSTANCE;
 	}
 
 	public List<Connection> getConnections() {
@@ -53,6 +62,8 @@ public class ConnectionPool {
 			// if no connections are available, 
 			// and the maximum amount of connections has been reached,
 			// return null
+			
+			System.out.println("No Connections Available!");
 			return null;
 		}
 	}
