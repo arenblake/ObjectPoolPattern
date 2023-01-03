@@ -9,12 +9,6 @@ public final class ConnectionPool {
 	private int maxConnections;
 	
 	private static ConnectionPool INSTANCE = new ConnectionPool();
-
-//	public ConnectionPool(List<Connection> connections, int maxConnections) {
-//		super();
-//		this.connections = connections;
-//		this.maxConnections = maxConnections;
-//	}
 	
 	private ConnectionPool() {}
 	
